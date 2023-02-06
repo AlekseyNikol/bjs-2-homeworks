@@ -14,6 +14,26 @@ function solveEquation(a, b, c) {
   return arr;
 }
 
-function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-  
+function calculateTotalMortgage(percent, contribution, amount, date) {
+  let totalAmount = 0;
+
+  if (isNaN(percent) === true) {
+    return console.log(`Параметр percent содержит неправильное значение '${percent}'`)
+  }
+  else if (isNaN(contribution) === true) {
+    return console.log(`Параметр contribution содержит неправильное значение '${contribution}'`)
+  }
+  else if (isNaN(amount) === true) {
+    return console.log(`Параметр amount содержит неправильное значение '${amount}'`)
+  }
+  percent = Number((percent / 100) / 12);
+  contribution = Number(contribution);
+  amount = Number(amount);
+  date = Number(date);
+
+  let creditBody = amount - contribution
+  let monthlyPayment = creditBody * (percent + (percent / (((1 + percent) ** date) - 1)))
+  totalAmount = Number((monthlyPayment * date).toFixed(2))
+  return totalAmount;
+
 }
