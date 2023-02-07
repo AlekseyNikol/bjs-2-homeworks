@@ -18,13 +18,13 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
   let totalAmount = 0;
 
   if (isNaN(percent) === true) {
-    return console.log(`Параметр percent содержит неправильное значение '${percent}'`)
+    return false
   }
   else if (isNaN(contribution) === true) {
-    return console.log(`Параметр contribution содержит неправильное значение '${contribution}'`)
+    return false
   }
   else if (isNaN(amount) === true) {
-    return console.log(`Параметр amount содержит неправильное значение '${amount}'`)
+    return false
   }
   percent = Number((percent / 100) / 12);
   contribution = Number(contribution);
