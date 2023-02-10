@@ -13,6 +13,6 @@ function getUsersNamesInAgeRange(users, gender) {
     
     result = users.filter(users => users.gender === gender).map((users, sum) => sum += users.age - sum).length
 
-    return users.filter(users => users.gender === gender).map((users, sum) => sum += users.age - sum).reduce((a, b) => (a + b))/result 
+    return users.filter(users => users.gender === gender).map((users, sum) => sum += users.age - sum).reduce((a, b) => (a + b),0)/result 
  */
 }
