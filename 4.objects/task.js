@@ -10,13 +10,16 @@ Student.prototype.setSubject = function (subjectName) {
 }
 
 Student.prototype.addMarks = function (...marks) {
-    if ('marks' in this === true) {
-        return 
+    if ('marks' in this) {
+        this.marks = 
+        //правильно ли осуществленна проверка свойств?
+        //как на этой стадии добавить элементы(оценки) в существующий массив marks
     }
 }
 
 Student.prototype.getAverage = function () {
-    if (this.marks.length === 0) {
+    if ('marks' in this === fals || this.marks.length === 0) {
+        //проверка на существования объекта marks и наличия в нем оценок.
         return 0
     }
     return this.marks.reduce((acc, item, arr) => acc + item / arr.length, 0)
