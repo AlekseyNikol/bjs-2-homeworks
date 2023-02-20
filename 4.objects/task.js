@@ -15,19 +15,17 @@ Student.prototype.addMarks = function (...marks) {
     }
 }
 
-Student.prototype.addMarks(mark1, mark2, mark3, ...rest) = function (marks) {
-    return addMarks;
-}
-
 Student.prototype.getAverage = function () {
     if ('marks' in this === false || this.marks.length === 0) {
         //правильно ли проверка на существования объекта marks и наличия в нем оценок?
         return 0
     }
-    return this.marks.reduce((acc, item) => acc + item / this.marks.length, 0)
-    //правильно ли мщется среднее значение у this.marks?
+    return this.marks.reduce((acc, mark, item, arr) => acc + mark / this.marks.length, 0)
 }
 
 Student.prototype.exclude = function (reason) {
-  
+    delete this.marks;
+    delete this.subject;
+
+    this.excluded = reason;
 }
