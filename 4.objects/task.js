@@ -17,7 +17,6 @@ Student.prototype.addMarks = function (...marks) {
 
 Student.prototype.getAverage = function () {
     if ('marks' in this === false || this.marks.length === 0) {
-        //правильно ли проверка на существования объекта marks и наличия в нем оценок?
         return 0
     }
     return this.marks.reduce((acc, mark, item, arr) => acc + mark / this.marks.length, 0)
