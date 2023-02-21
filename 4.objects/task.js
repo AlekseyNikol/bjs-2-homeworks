@@ -11,7 +11,7 @@ Student.prototype.setSubject = function (subjectName) {
 
 Student.prototype.addMarks = function (...marks) {
     if ("marks" in this === true) {
-        this.marks = [...this.marks, ...marks]
+        this.marks.push(...marks)
     }
 }
 
@@ -19,7 +19,7 @@ Student.prototype.getAverage = function () {
     if ('marks' in this === false || this.marks.length === 0) {
         return 0
     }
-    return this.marks.reduce((acc, mark, item, arr) => acc + mark / this.marks.length, 0)
+    return this.marks.reduce((acc, mark, item, arr) => acc + mark / arr.length, 0)
 }
 
 Student.prototype.exclude = function (reason) {
@@ -28,3 +28,5 @@ Student.prototype.exclude = function (reason) {
 
     this.excluded = reason;
 }
+
+//------------------
