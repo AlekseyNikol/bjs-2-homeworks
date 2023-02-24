@@ -27,3 +27,10 @@ class PrintEditionItem {
             return this._state;
     }
 }
+
+class Magazine extends PrintEditionItem {
+    constructor(name, releaseDate, pagesCount) {
+        super(name, releaseDate, pagesCount);
+        this.type = "magazine";
+    }
+}
