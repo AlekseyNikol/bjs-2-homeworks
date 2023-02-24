@@ -10,7 +10,7 @@ class PrintEditionItem {
     }
 
     fix() {
-        this.type += this.type * 1.5 
+        this.state *= 1.5 
     }
 
     set state(number) {
@@ -21,8 +21,9 @@ class PrintEditionItem {
         } else {
             this._state = number;
         }
+    }
+
     get state() {
             return this._state;
-        }
     }
 }
