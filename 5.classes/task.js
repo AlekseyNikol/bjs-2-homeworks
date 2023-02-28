@@ -59,7 +59,7 @@ class FantasticBook extends Book {
 
 class DetectiveBook extends Book {
     constructor(author, name, releaseDate, pagesCount) {
-        super(author, releaseDate, pagesCount);
+        super(author, name, releaseDate, pagesCount);
         this.type = "detective";
     }
 }
@@ -80,22 +80,18 @@ class Library {
 
     findBookBy(type, value) {
         let findBook = this.books.find(el => el[type] === value)
-        if (findBook === undefined) {
-            return null;
-        } else {
-            return findBook;
-        }
+        return findBook === undefined ? null : findBook;
     }
 
     giveBookByName(bookName) {
-        const findBookIndex = this.books.indexOf(bookName)
+        const findBookIndex = this.books.findIndex(el => el.name === bookName)
 
-        if (findBookIndex === undefined) {
-            return null;
-        } else {
-            let findBook = this.books.splice(findBookIndex, 1);
-            return findBook;
+        let book = null;
+        if (findBookIndex >= 0) {
+            book = this.books[findBookIndex];
+            this.books.splice(findBookIndex, 1);
         }
+        return book;
     }
 }
 
