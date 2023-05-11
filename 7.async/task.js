@@ -11,7 +11,8 @@ class AlarmClock {
       if (!time || !callback) {
          throw new Error('Отсутствуют обязательные аргументы')
       }
-      if (this.alarmCollection.some(time => time)) {
+      //console.log(this.alarmCollection[0].time)
+      if (this.alarmCollection.some(item => item.time === time)) {
          console.warn('Уже присутствует звонок на это же время')
       }
 
@@ -25,14 +26,20 @@ class AlarmClock {
 
    getCurrentFormattedTime() {
       const timeNow = new Date();
+      console.log(timeNow)
       const hours = timeNow.getHours().toString();
       const minutes = timeNow.getMinutes().toString();
-      let resultTime = "";
-      if (minutes.length < 2) {
-         resultTime = hours + ":" + 0 + minutes;
-      } else if (minutes.length >= 2) {
-         resultTime = hours + ":" + minutes;
-      }
+      let resultTime = timeNow.toLocaleTimeString("ru-Ru", {
+         hour: "2-digit",
+         minute: "2-digit",
+      });
+      console.log(new Date())
+      // if (minutes.length < 2) {
+      //    resultTime = 0 + hours + ":" + 0 + minutes;
+      // } else if (minutes.length >= 2) {
+      //    resultTime = hours + ":" + minutes;
+      // }
+
       return resultTime
    }
 
@@ -69,3 +76,4 @@ class AlarmClock {
       this.alarmCollection = []
    }
 }
+
